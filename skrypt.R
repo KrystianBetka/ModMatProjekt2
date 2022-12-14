@@ -1,25 +1,25 @@
 #Częsć 2 projektu
 library(ggplot2)
-wawel <- read.csv("nke_de_d.csv")
-zywiec <- read.csv("ads_de_d.csv")
+nike <- read.csv("nke_de_d.csv")
+addidas <- read.csv("ads_de_d.csv")
 
-datawawel <- subset(wawel,wawel$Data %in% zywiec$Data)
-datazywiec <- subset(zywiec,zywiec$Data %in% wawel$Data)
+data_nike <- subset(nike,nike$Data %in% addidas$Data)
+data_addidas <- subset(addidas,addidas$Data %in% nike$Data)
 
-datazywiec_closed <- datazywiec$Zamkniecie
-datawawel_closed <- datawawel$Zamkniecie
+data_addidas_closed <- data_addidas$Zamkniecie
+data_nike_closed <- data_nike$Zamkniecie
 
 library(ggExtra)
 library(mnormt)
 
-logDataWawel <- log(datawawel_closed)
-logDataZywiec <- log(datazywiec_closed)
+logDataNike <- log(data_nike_closed)
+logDataAddidas <- log(data_addidas_closed)
 
-log_zwrotyWawel <- diff(logDataWawel)
-log_zwrotyZywiec <- diff(logDataZywiec)
+log_zwroty_nike <- diff(logDataNike)
+log_zwroty_addidas <- diff(logDataAddidas)
 
-df <- data.frame(wawel=log_zwrotyWawel,zywiec=log_zwrotyZywiec)
-p <- ggplot(df,aes(x=wawel,y=zywiec))+geom_point()
+df <- data.frame(nike=log_zwroty_nike,addidas=log_zwroty_addidas)
+p <- ggplot(df,aes(x=nike,y=addidas))+geom_point()
 ggMarginal(p,type="histogram")
 
 mu <- colMeans(df)
