@@ -1,7 +1,7 @@
 #Częsć 2 projektu
 library(ggplot2)
-wawel <- read.csv("C:/Users/kryst/InformatykaPraktyczna/sem3/ModMat/Projekt2/nke_de_d.csv")
-zywiec <- read.csv("C:/Users/kryst/InformatykaPraktyczna/sem3/ModMat/Projekt2/ads_de_d.csv")
+wawel <- read.csv("nke_de_d.csv")
+zywiec <- read.csv("ads_de_d.csv")
 
 datawawel <- subset(wawel,wawel$Data %in% zywiec$Data)
 datazywiec <- subset(zywiec,zywiec$Data %in% wawel$Data)
@@ -42,3 +42,4 @@ z     <- outer(x, y, f)
 persp(x=x, y=y, z, theta = -30, phi = 25, 
       shade = 0.75, col = "lightblue", expand = 0.5, r = 2, 
       ltheta = 25, ticktype = "detailed")
+
