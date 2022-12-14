@@ -43,3 +43,27 @@ persp(x=x, y=y, z, theta = -30, phi = 25,
       shade = 0.75, col = "lightblue", expand = 0.5, r = 2, 
       ltheta = 25, ticktype = "detailed")
 
+#porownujemy wykresy rozrzutu
+
+#generujemy probe z  rozkladu N(mu,Sigma)
+n <- nrow(df); n
+
+set.seed(100)
+Z <-MASS::mvrnorm(n,mu=mu,Sigma=Sigma)
+
+par(mfrow=c(1,2))
+plot(df, xlim=c(-0.15,0.15),ylim=c(-0.10,0.10))
+plot(Z,xlim=c(-0.15,0.15),ylim=c(-0.10,0.10))
+
+
+dM <- mahalanobis(df,mu,Sigma)
+
+n <- dim(df)[1]; n
+alpha <- ppoints(n)
+q_emp <- quantile(dM,alpha)
+q_teo <- qchisq(alpha,df=2)
+
+plot(q_emp,q_teo,pch=19)
+abline(a=0,b=1,col=2)
+
+
