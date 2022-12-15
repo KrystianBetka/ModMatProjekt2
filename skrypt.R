@@ -84,6 +84,6 @@ ks.test(dM,'pchisq',2)
 #z wykorzystaniem statystyki Andersona-Darlinga
 library(MVN)
 par(mfrow=c(1,2))
-result = mvn(data = df, mvnTest = "mardia",
+result = mvn(data = df , mvnTest = "mardia",
              univariateTest = "AD", univariatePlot = "qq",
              multivariatePlot = "qq")
