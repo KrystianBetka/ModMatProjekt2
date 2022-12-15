@@ -64,6 +64,7 @@ plot(df, xlim=c(-0.15,0.15),ylim=c(-0.10,0.10))
 plot(Z,xlim=c(-0.15,0.15),ylim=c(-0.10,0.10))
 
 
+#QQ-ploty Mahalanobisa/test chi(2)
 dM <- mahalanobis(df,mu,Sigma)
 
 n <- dim(df)[1]; n
@@ -74,6 +75,15 @@ q_teo <- qchisq(alpha,df=2)
 plot(q_emp,q_teo,pch=19)
 abline(a=0,b=1,col=2)
 
+#testujemyhipoteze, ze kwadraty odleglosci Mahalanobisa maja rozklad chi(2)
+ks.test(dM,'pchisq',2)
 
-#QQ-ploty Mahalanobisa/test chi(2)
 
+#dodatkowe ???? czy punkt 3???
+#jednoczesnie z testowaniem normalnosci rozkladow brzegowych
+#z wykorzystaniem statystyki Andersona-Darlinga
+library(MVN)
+par(mfrow=c(1,2))
+result = mvn(data = df, mvnTest = "mardia",
+             univariateTest = "AD", univariatePlot = "qq",
+             multivariatePlot = "qq")
