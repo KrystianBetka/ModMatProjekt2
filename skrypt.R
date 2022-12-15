@@ -29,7 +29,7 @@ ggMarginal(p,type="histogram")
 
 #estymujemy parametry rozkladu normalnego 
 #wektor srednich, macierz kowariancji/korelacji
-mu <- colMeans(df)
+mu <- colMeans(df) #wektor srednich ˆμ
 Sigma <- cov(df)    #estymator nieobciażony macierzy korelacji
 P <- cor(df)
 mu; Sigma;P
@@ -40,8 +40,8 @@ s1 <- sqrt(Sigma[1])
 
 s2 <- sqrt(Sigma[4])
 
-x     <- seq(-3*s1, 3*s1, 0.1) 
-y     <- seq(-3*s2, 3*s2, 0.1)
+x     <- seq(-3*s1, 3*s1, 0.0025) 
+y     <- seq(-3*s2, 3*s2, 0.0025)
 x;y
 
 f     <- function(x, y) dmnorm(cbind(x, y), mu, Sigma)  
@@ -89,3 +89,4 @@ par(mfrow=c(1,2))
 result = mvn(data = df , mvnTest = "mardia",
              univariateTest = "AD", univariatePlot = "qq",
              multivariatePlot = "qq")
+
