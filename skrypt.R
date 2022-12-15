@@ -11,19 +11,24 @@ data_nike_closed <- data_nike$Zamkniecie
 
 library(ggExtra)
 library(mnormt)
-
+#dzienne log zwroty
 logDataNike <- log(data_nike_closed)
 logDataAddidas <- log(data_addidas_closed)
 
 log_zwroty_nike <- diff(logDataNike)
 log_zwroty_addidas <- diff(logDataAddidas)
 
+
+#wykres rozrzutu z histogramami rozkladow brzegowych
 df <- data.frame(nike=log_zwroty_nike,addidas=log_zwroty_addidas)
 p <- ggplot(df,aes(x=nike,y=addidas))+geom_point()
 ggMarginal(p,type="histogram")
 
+
+#estymujemy parametry rozkladu normalnego 
+#wektor srednich, macierz kowariancji/korelacji
 mu <- colMeans(df)
-Sigma <- cov(df)
+Sigma <- cov(df)    #estymator nieobciażony macierzy korelacji
 P <- cor(df)
 mu; Sigma;P
 
@@ -43,7 +48,9 @@ persp(x=x, y=y, z, theta = -30, phi = 25,
       shade = 0.75, col = "lightblue", expand = 0.5, r = 2, 
       ltheta = 25, ticktype = "detailed")
 
-#porownujemy wykresy rozrzutu
+
+
+#---------porownujemy wykresy rozrzutu
 
 #generujemy probe z  rozkladu N(mu,Sigma)
 n <- nrow(df); n
@@ -51,6 +58,7 @@ n <- nrow(df); n
 set.seed(100)
 Z <-MASS::mvrnorm(n,mu=mu,Sigma=Sigma)
 
+#wykresy rozrzutu
 par(mfrow=c(1,2))
 plot(df, xlim=c(-0.15,0.15),ylim=c(-0.10,0.10))
 plot(Z,xlim=c(-0.15,0.15),ylim=c(-0.10,0.10))
@@ -66,4 +74,6 @@ q_teo <- qchisq(alpha,df=2)
 plot(q_emp,q_teo,pch=19)
 abline(a=0,b=1,col=2)
 
+
+#QQ-ploty Mahalanobisa/test chi(2)
 
