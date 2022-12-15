@@ -24,6 +24,8 @@ df <- data.frame(nike=log_zwroty_nike,addidas=log_zwroty_addidas)
 p <- ggplot(df,aes(x=nike,y=addidas))+geom_point()
 ggMarginal(p,type="histogram")
 
+#-------komentarz
+#Marginalny histogram - ułatwia ocenę rozkładu i korelacji pomiędzy dwoma zestawami danych
 
 #estymujemy parametry rozkladu normalnego 
 #wektor srednich, macierz kowariancji/korelacji
@@ -78,7 +80,7 @@ abline(a=0,b=1,col=2)
 #testujemyhipoteze, ze kwadraty odleglosci Mahalanobisa maja rozklad chi(2)
 ks.test(dM,'pchisq',2)
 
-
+ 
 #dodatkowe ???? czy punkt 3???
 #jednoczesnie z testowaniem normalnosci rozkladow brzegowych
 #z wykorzystaniem statystyki Andersona-Darlinga
