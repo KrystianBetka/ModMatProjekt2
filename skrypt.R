@@ -2,6 +2,9 @@
 library(ggplot2)
 nike <- read.csv("nke_de_d.csv")
 addidas <- read.csv("ads_de_d.csv")
+#nike <- read.csv("11b_d.csv")
+#addidas <- read.csv("cdr_d.csv")
+
 
 data_nike <- subset(nike,nike$Data %in% addidas$Data)
 data_addidas <- subset(addidas,addidas$Data %in% nike$Data)
@@ -32,7 +35,8 @@ ggMarginal(p,type="histogram")
 mu <- colMeans(df) #wektor srednich ˆμ
 Sigma <- cov(df)    #estymator nieobciażony macierzy korelacji
 P <- cor(df)
-mu; Sigma;P
+mu; 
+Sigma;P
 
 
 
@@ -57,7 +61,7 @@ persp(x=x, y=y, z, theta = -30, phi = 25,
 #generujemy probe z  rozkladu N(mu,Sigma)
 n <- nrow(df); n
 
-set.seed(100)
+set.seed(100000)
 Z <-MASS::mvrnorm(n,mu=mu,Sigma=Sigma)
 
 #wykresy rozrzutu
@@ -68,6 +72,8 @@ plot(Z,xlim=c(-0.15,0.15),ylim=c(-0.10,0.10))
 
 #QQ-ploty Mahalanobisa/test chi(2)
 dM <- mahalanobis(df,mu,Sigma)
+par(mfrow=c(1,1))
+hist(dM,prob=TRUE)
 
 n <- dim(df)[1]; n
 alpha <- ppoints(n)
