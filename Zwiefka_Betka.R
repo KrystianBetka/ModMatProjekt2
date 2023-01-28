@@ -180,7 +180,7 @@ RSE
 #test istotnosci wspolczynnikow bo, b1
 #Obliczamy wartosci statystyki T oraz p-value
 #wspolczynniki modelu 
-coef <- log_zwroty_lm$coefficients  #lub coef(waga.lm)
+coef <- log_zwroty_lm$coefficients  
 beta0 <- coef[[1]]
 beta1 <- coef[[2]]
 beta0; beta1  #-0.0009209255, 0.6535549
@@ -200,6 +200,22 @@ t0; t1
 #p-value (p = P(|T|>t0), p = P(|T|>t1))
 2*(1-pt(abs(t0),95))
 2*(1-pt(abs(t1),95))
+#dla beta0 wartość  p  wynosi 20% zatem nie ma podstaw do odrzucenia hipotezy, że współczynniki są równe zero
+#dla beta1 wartość p value 0 zatem na poziomie istotności 5% odrzucamy hipotezę zerową
+# czy 1f)
+#PREDYKCJA
+m <- mean(log_zwroty_nike)
+
+beta0+beta1*m # czy to jest model 2?
+#wyniki predykcji -0.0002776217
+
+#Predykcja i przedzialy ufnosci dla predykcji
+
+nowe_log_zwroty <- data.frame(log_zwroty_nike=m)
+predict(log_zwroty_lm, nowe_log_zwroty, interval="confidence") #model 2
+#     fit          lwr         upr
+# -0.0002776217 -0.001813021 0.001257778
+
 
 
 #OMÓWIENIE MODELU
