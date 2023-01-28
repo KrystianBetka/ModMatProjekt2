@@ -87,7 +87,6 @@ abline(a=0,b=1,col=2)
 ks.test(dM,'pchisq',2)
 
  
-#dodatkowe ???? czy punkt 3???
 #jednoczesnie z testowaniem normalnosci rozkladow brzegowych
 #z wykorzystaniem statystyki Andersona-Darlinga
 library(MVN)

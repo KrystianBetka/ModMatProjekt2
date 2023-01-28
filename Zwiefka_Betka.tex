@@ -1,0 +1,433 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[cp1250]{inputenc}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\graphicspath{ {./images/} }
+\begin{document}
+\begin{titlepage}
+
+\title{Zadanie Projektowe}
+\author{Krystian Betka, Anna Zwiefka}
+\date{Listopad-Grudzień 2022}
+\maketitle
+\end{titlepage}
+
+
+
+
+\section{Kursy zamknięcia }
+\subsection{Spółka 1}
+
+
+\begin{center}
+\includegraphics[scale=0.4]{images/histogram_2.png}
+\includegraphics[scale=0.4]{images/Rplot02.png}
+\end{center}
+
+\begin{flushleft}
+{Grupa Żywiec SA odnotowała w 2020 roku duże spadki akcji. Najniżej  w tym okresie spółka przyjmowała wartośći okoł 420 zł . Pod koniec 2020 roku akcje zacznają wyraźnie rosnąć i z niewielkimi wachaniami rosną aż do końca grudnia 2021 roku, gdzie przyjmuję wartość w okolicy 500zł.}
+{Patrząć na histogram możemy zauważyć,że przez najczęśćźj ceny akcji utrzymywały się w okolicy 460zł, a przez krótki okres w okolicy 480zł.}
+\end{flushleft}
+
+\subsection{Spółka 2}
+
+\begin{center}
+\includegraphics[scale=0.4]{images/histwawel.png}
+\includegraphics[scale=0.4]{images/rplotwawel.png}
+\end{center}
+
+\begin{flushleft}
+{Firma Wawel na przestrzeni lat 2020 i 2021 odnotowała bardzo duże wachania cen akcji.
+W tym okresie najnisza kwota do jakiej spadły akcje wynosiła około 490zł, a w szczytowych momentach wartosć akcji firmy wzrosła nawet do 630 zł.}
+{Pod koniec 2021 roku wartośći akcji zaczęły gwałtownie spadać  }
+\end{flushleft}
+
+
+\section{Statystyki opisowe}
+\subsection{Spółka 1}
+
+\begin{tabular}{ |c | c | c| c |c| } 
+  \hline
+    & wartość oczekiwana & odchylenie standardowe & skośność & kurtoza \\ 
+  \hline
+  Akcje & 449.9867    & 19.74945 & 0.7234076 & 3.360605\\ 
+  \hline
+\end{tabular}
+
+\begin{flushleft}
+{ Wartość oczekiawana wynosi 449,99 zł, a odchylenie standardowe 19,75zł Skośność przyjęła wartość bliską zeru, co świadczy o braku dużej asymetrii wyników względem średniej.Przyjmuje jednak wartość dodatnią, więc mamy do czynnienia z lekką asymetrią prawostronną.Kurtoza przyjmuje wartość powyżej 0, co oznacza,że znaczna część wyników  jest podobna do siebie a wyników znacznie różniących się od średniej jest mało.}
+\end{flushleft}
+
+\subsection{Spółka 2}
+
+\begin{tabular}{ |c | c | c| c |c| } 
+  \hline
+    & wartość oczekiwana & odchylenie standardowe & skośność & kurtoza \\ 
+  \hline
+  Akcje & 564.2332    & 32.23696 & -0.3970378 & 2.329216\\ 
+  \hline
+\end{tabular}
+\begin{flushleft}
+{Wartość oczekiwana wynosi 564,23 zł ,a odchylenie standardowe 
+32,24 zł. Skośność przyjmuje wartość zbliżoną do zera. Ponieważ wartość ta jest wartością bliską zera możemy wywnioskować ,że występuje lekka asymetria lewostronna.
+Kurtoza przyjmuje wartość dodatnią, oznacza to że wartość większości wyników jest zbliżona do wartości średniej.}
+\end{flushleft}
+
+
+\section{Wyestymowane parametry rozkładów}
+\subsection{Spółka 1}
+
+%       estimate Std. Error
+% mean 449.98669  0.8885671
+% sd    19.72941  0.6283125
+
+
+\begin{center}
+{\textbf{Rozkład normalny}}\\
+\begin{tabular}{ |c | c | c|  } 
+  \hline
+    & Estimate & Std Error  \\ 
+  \hline
+  mean & 449.98669   &  0.8885671\\ 
+  \hline
+   sd &  19.72941    & 0.6283125 \\ 
+  \hline
+\end{tabular}
+
+
+
+%           estimate  Std. Error
+% meanlog 6.10827420 0.001948226
+% sdlog   0.04325765 0.001374293
+
+\end{center}
+
+\begin{center} 
+{\textbf{Rozkład logarytmicznie normalny}}\\
+
+\begin{tabular}{ |c | c | c|  } 
+  \hline
+    & Estimate & Std Error  \\ 
+  \hline
+  meanlog & 6.10827420  &  0.001948226\\ 
+  \hline
+   sdlog &  0.04325765    &  0.001374293 \\ 
+  \hline
+\end{tabular}
+\end{center}
+
+%        estimate Std. Error
+% shape  20.82451  0.6484075
+% scale 459.91477  1.0582762
+
+\begin{center} 
+{\textbf{Rozkład Weibulla}}\\
+\begin{tabular}{ |c | c | c|  } 
+  \hline
+    & Estimate & Std Error  \\ 
+  \hline
+  shape & 20.82451 &  0.6484075\\ 
+  \hline
+   scale &  459.91477    &  1.0582762 \\ 
+  \hline
+\end{tabular}
+\end{center}
+
+\subsection{Spółka 2}
+\begin{center}
+{\textbf{Rozkład normalny}}\\
+\begin{tabular}{ |c | c | c|  } 
+  \hline
+    & Estimate & Std Error  \\ 
+  \hline
+  mean & 564.23320   &  1.450407\\ 
+  \hline
+   sd &  32.20425    & 1.025592 \\ 
+  \hline
+\end{tabular}
+
+{\textbf{Rozkład logarytmicznie normalny}}\\
+
+\begin{tabular}{ |c | c | c|  } 
+  \hline
+    & Estimate & Std Error  \\ 
+  \hline
+  meanlog & 6.33380782  &  0.002607669\\ 
+  \hline
+   sdlog &  0.05789965    &  0.001841426 \\ 
+  \hline
+\end{tabular}
+\end{center}
+
+\begin{center} 
+{\textbf{Rozkład Weibulla}}\\
+\begin{tabular}{ |c | c | c|  } 
+  \hline
+    & Estimate & Std Error  \\ 
+  \hline
+  shape & 20.8355 &  0.7338134\\ 
+  \hline
+   scale &  578.9342    &  1.3200189 \\ 
+  \hline
+\end{tabular}
+\end{center}
+
+
+\section{Diagnostyka}
+\subsection{Spółka 1}
+
+
+
+\begin{center}
+\includegraphics[scale=0.5]{images/wykresy_diagnostyczne.png}
+\end{center}
+
+
+%                                    norm      lnorm    weibull
+% Kolmogorov-Smirnov statistic  0.1430378  0.1455094  0.1447327
+% Cramer-von Mises statistic    1.4337239  1.4277894  1.4250447
+% Anderson-Darling statistic   11.7826817 11.3142030 11.4453426
+
+\begin{center} 
+{\textbf{Goodness-of-fit statistics}}\\
+\begin{tabular}{ |c | c | c| c | } 
+  \hline
+    &  norm &  lnorm &  weibull  \\ 
+  \hline
+  Kolmogorov-Smirnov statistic  & 0.1430378 &  0.1455094 & 0.1447327 \\ 
+  \hline
+   Cramer-von Mises statistic  & 1.4337239    &   1.4277894 &  1.4250447 \\ 
+  \hline
+   Anderson-Darling statistic  &  11.7826817     & 11.3142030 & 11.4453426 \\ 
+  \hline
+\end{tabular}
+\end{center}
+
+% Goodness-of-fit criteria
+%                                    norm    lnorm  weibull
+% Akaike's Information Criterion 4343.434 4329.219 4333.675
+% Bayesian Information Criterion 4351.835 4337.620 4342.076
+
+\begin{center} 
+{\textbf{Goodness-of-fit criteria}}\\
+\begin{tabular}{ |c | c | c| c | } 
+  \hline
+    &  norm &  lnorm &  weibull  \\ 
+  \hline
+  Akaike's Information Criterion & 4343.434  &  4329.219 & 4333.675 \\ 
+  \hline
+   Bayesian Information Criterion & 4351.835 & 4337.620  & 4342.076 \\ 
+  \hline
+ 
+\end{tabular}
+\end{center}
+
+\begin{flushleft}
+{Na podstawie samych wykresów diagnostycznych ciężko jest wyciągnąć jednoznaczne wnioski.Korzystająć z testów zgodnośći w przypadku statystyki Kolmogorova-Smirnova najmniejszą wartość przyjmuje rozkład normalny, jednak jest niewielka róznica między wszystkimi trzema rozkładami. W przypadku czterech pozostałych testów: statystyki Cramera-von-Misesa oraz  statystyki Andersona-Darlinga,kryteriów AIC oraz BIC nahmniejszą wartość przyjmuje rozkład logarytmicznie normalny.
+Na tej podstawie najlpeiej kursy zamknięcia opisuje rozkład logarytminczie normalny.}
+\end{flushleft}
+\subsection{Spółka 2}
+\begin{center}
+\includegraphics[]{images/4wawel.png}
+\end{center}
+
+\begin{center} 
+{\textbf{Goodness-of-fit statistics}}\\
+\begin{tabular}{ |c | c | c| c | } 
+  \hline
+    &  norm &  lnorm &  weibull  \\ 
+  \hline
+  Kolmogorov-Smirnov statistic  & 0.07926776 &  0.08458584 & 0.05919198 \\ 
+  \hline
+   Cramer-von Mises statistic  & 0.88112255    &   1.05032753 &  0.39270761 \\ 
+  \hline
+   Anderson-Darling statistic  &  5.65864285     & 6.68097411 & 2.81934055 \\ 
+  \hline
+\end{tabular}
+\end{center}
+
+% Goodness-of-fit criteria
+%                                    norm    lnorm  weibull
+% Akaike's Information Criterion 4343.434 4329.219 4333.675
+% Bayesian Information Criterion 4351.835 4337.620 4342.076
+
+\begin{center} 
+{\textbf{Goodness-of-fit criteria}}\\
+\begin{tabular}{ |c | c | c| c | } 
+  \hline
+    &  norm &  lnorm &  weibull  \\ 
+  \hline
+  Akaike's Information Criterion & 4826.563  &  4839.051 & 4803.677 \\ 
+  \hline
+   Bayesian Information Criterion & 4834.964 & 4847.452  & 4812.078 \\ 
+  \hline
+ 
+\end{tabular}
+\begin{flushleft}
+{Po dokładniejszym przyjrzeniu sie wykresom mozemy dojść do wniosku, że dla rozkładu Weilbulla wykresy najlepiej się pokrywają.Dodatkowo potwierdzają to testy zgodności ,gdzie statystyk Kolmogorova-Smirnova, Cramera-von-Misesa oraz  statystyki Andersona-Darlinga rozkład Weilbulla przyjmuje wartości zawsze bardziej zbliżone zeru niż w przypadku dwóch innych rozkładów. Dlatego własnie wybieramy rozkład Weibulla.}
+\end{flushleft}
+\section{Test zgodności metodą Monte Carlo}
+\subsection{Spółka 1 - rozkład logarytmicznie normalny}
+\begin{center}
+    \includegraphics[scale=0.4]{images/monte_carlo.png}
+\end{center}
+\begin{flushleft}
+{Metoda Monte Carlo wyznaczyliśmy rozklad statystyki Dn.Wartość $p$ wynosi 0, oznacza to,że przy dowolnie przyjetym poziomie istotnosci hipoteze o rownosci rozkladow odrzucamy.}
+\end{flushleft}
+\subsection{Spółka 2 - rozkład Weibulla}
+\begin{center}
+    \includegraphics[scale=0.8]{images/dweibull.png}
+\end{center}
+\begin{flushleft}
+{Ponieważ wartość p jest większa od przyjętego poziomu istotności,nie ma podstaw do odrzucenia hipotezy o równosci rozkładów}
+\end{flushleft}
+\end{center}
+
+
+\newpage
+\section*{Analiza łącznego rozkładu log-zwrotów}
+{Jako,że w poprzedniej części projektu zostłay wybrane spółki z innego sektora w tej części analizowane są inne już z tego samego sektora. Analizowane są spółki Nike Inc oraz Adidas  AG w okresie 2020-2021 \newline}
+\begin{flushleft}
+    
+
+{Jeżeli $S_{0}$, $S_{1}$, . . . , $S_{n}$ cenami zamknięcia z kolejnych dni, to dzienne log-zwroty definiujemy jako
+$$r_{1} =\ln\frac{S_{1}}{S_{0}},\:r_{2} =\ln\frac{S_{2}}{S_{1}},\:r_{n} =\ln\frac{S_{n}}{S_{n-1}}$$}
+\end{flushleft}
+
+\section{Estymacja parametrów z próby  $r_{1}$, $r_{2}$, . . . , $r_{n}$ oraz analiza rozkładu dwuwymiarowego normalnego o wyestymowanych parametrach.}
+
+\subsection{Wykres rozrzutu z histogramami rozkładów brzegowych}
+
+\begin{center}
+\includegraphics[scale=0.7]{images/wykresbrzegowy.png}
+
+\end{center}
+\begin{flushleft}
+{Na wykresie widać, że wartości log zwrotów obu spółek są skupione wokół tych samych wartości z niewieloma wyjątkami.Największe skupienie występuje w okolicach 0.
+Obie spółki mają największe prawdopodobieństwo przyjęcia tych samych wartości log zwrotów, które wynoszą od -0.05 do 0.05 dla obu spółek.}
+\end{flushleft}
+
+\subsection{Wartości}
+
+
+\begin{center}
+{\textbf{Wektor
+średnich µ}}\\
+\begin{tabular}{ |c | c | c|} 
+  \hline
+    & Nike & Adidas  \\ 
+  \hline
+ µ & 0.0009843150    & -0.0002776217  \\ 
+  \hline
+
+\end{tabular}
+\end{center}
+
+
+
+
+\begin{center}
+{\textbf{Macierz kowariancji}}\\
+\begin{tabular}{ |c | c | c| } 
+  \hline
+    & Nike & Adidas   \\ 
+  \hline
+  Nike & 0.0004669682 & 0.0003051894\\ 
+  \hline
+  Adidas & 0.0003051894 & 0.0005091091\\
+  \hline
+\end{tabular}
+\end{center}
+{Z macierzy kowariancji możemy odczytać, że Var(Nike)=0.0004669682 oraz Var(Adidasa)=0.0005091091 dodatkowo z wyznaczonych wartośći wektora średnich µ dla Nike wynosi 0.0009843150, a dla Adidasa -0.0002776217. Możemy więc zauważyć, że wartość wektora średnich $\hat{\mu}$ oraz wariancja jest bliska 0, oznacza to, że dane są skupione wokół średnich i nie ma dużego rozrzutu.\newline }
+
+ \begin{flushleft}
+
+
+{Kowariancja jest równa 0.0003051894, a współczynnik korelacji wynosi 0,6259221, oznacza to, że istnieje pewien stopień korelacji liniowej między zmiennymi, ale nie jest ona bardzo silna. Wartość kowariancji jest stosunkowo mała, co sugeruje, że zmienne losowe nie są silnie skorelowane.}
+
+\end{flushleft}
+
+
+{}
+\begin{center}
+{\textbf{Macierz korelacjii}}\\
+\begin{tabular}{ |c | c | c| } 
+  \hline
+    & Nike & Adidas   \\ 
+  \hline
+  Nike & 1 & 0.6259221\\ 
+  \hline
+  Adidas & 0.6259221 & 1\\
+  \hline
+\end{tabular}
+\end{center}
+
+\begin{flushleft}
+{Jako, że  nasz współczynnik korelacji wynosi 0,6259221 zachodzi umiarkowana zależność liniowa między dwoma badanymi zmiennymi.}
+
+\end{flushleft}
+
+
+
+\subsection{Wzór gęstośc wraz  z wykresem rozkładu normalnego o wyestymowanych parametrach N($\hat{\mu}$, $\hat{\Sigma}$) }
+
+\large
+$$f(x,y)=\frac{1}{2\pi\sigma_{1}\sigma_{2}\sqrt{1-\rho^2}}exp\Bigl(-\frac{1}{2(1-\rho^2)}\Bigr[\frac{(x-\mu_{1})^2}{\sigma^2}-2\rho\frac{(x-\mu_{1})(y-\mu_{2})}{\sigma_{1}\sigma_{2}}+\frac{(y-\mu_{2})^2}{\sigma_{2}^2}\Bigr]\Bigl)$$
+\\
+
+
+\large
+\setlength\parindent{0pt}
+x - wektor log-zwrotów spółki Nike \\
+y - wektor log-zwrotów spółki Adidas \\
+$\mu_{1}$ - średnia log-zwrotów spółki  Nike \\
+$\mu_{2}$ - średnia log-zwrotów spółki Adidas \\
+$\sigma_{1}$ - ochylenie standardowe log-zwrotów spółki  Nike \\ 
+$\sigma_{2}$ - ochylenie standardowe log-zwrotów spółki Adidas \\
+$\rho$ - współczynnik korelacji
+
+
+
+
+\begin{center}
+\includegraphics[scale=0.5]{images/3d_v2.png}
+\begin{flushleft}
+
+{Patrząc na wykres możemy zauważyć, że funkcja najczęśćiej przyjmuje wartości,w przedziale od -0.05 do 0.05 dla obu spółek.}
+\end{flushleft}
+\end{center}
+
+
+\section{Analiza dopasowania rozkładu $N(\hat{\mu}\:, \hat{\Sigma})$}
+\subsection{Próba liczności danych rozkładu $N(\hat{\mu}\:, \hat{\Sigma})$}
+\begin{center}
+\includegraphics[scale=0.7]{images/rozrzut.png}
+\end{center}
+\begin{flushleft}
+{Powyżej po lewej stronie znajduje się wykres rozrzutu powstały na podstawie otrzymanych przez nas danych, a po prawej wykres stworzony w oparciu o wygerowaną próbę. Porównując je ze sobą możemy zauważyć, że choć wartości na  wykresie pierwszym są bardziej skupione niż na wykresie drugim  to na wykresie pierwszym widzimy więcej wartości skrajnych.
+}
+\end{flushleft}
+
+\subsection{Kwadraty odległości Mahalanobisa}
+\begin{center}
+\includegraphics[scale=0.4]{images/hist_maha.png}
+\end{center}
+
+
+\begin{center}
+\includegraphics[scale=0.4]{images/chi_square.png}
+\end{center}
+{Testujemy hipoteze, ze kwadraty odleglosci Mahalanobisa maja rozklad chi(2).Wartość  p-value < 5\%\, zatem odrzucamy hipoteze, ze kwadraty odleglosci Mahalanobisa maja rozklad chi(2),
+co skutkuje tez odrzuceniem hipotezy o normalnosci rozkladu log-zwrotow}
+
+
+\end{document}
+
+
