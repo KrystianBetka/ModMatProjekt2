@@ -175,3 +175,32 @@ shapiro.test(reszty)
 #RSE - blad standardowy reszt
 RSE <- sqrt(sum(reszty^2)/(length(log_zwroty_nike)-2))
 RSE
+
+
+#test istotnosci wspolczynnikow bo, b1
+#Obliczamy wartosci statystyki T oraz p-value
+#wspolczynniki modelu 
+coef <- log_zwroty_lm$coefficients  #lub coef(waga.lm)
+beta0 <- coef[[1]]
+beta1 <- coef[[2]]
+beta0; beta1  #-0.0009209255, 0.6535549
+coef_all <- summary$coefficients
+coef_all 
+
+#odchylenia standardowe estymatorow beta0, beta1
+se.beta0 <- coef_all[1,2]
+se.beta1 <- coef_all[2,2]
+se.beta0; se.beta1
+
+#wartosci statystyki T (t value) 
+t0 <- beta0/se.beta0
+t1 <- beta1/se.beta1
+t0; t1
+
+#p-value (p = P(|T|>t0), p = P(|T|>t1))
+2*(1-pt(abs(t0),95))
+2*(1-pt(abs(t1),95))
+
+
+#OMÓWIENIE MODELU
+#1.Błąd standardowy B0 i B1
