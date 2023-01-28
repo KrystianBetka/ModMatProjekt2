@@ -105,6 +105,7 @@ result = mvn(data = df , mvnTest = "mardia",
 # przwdziały ufności - wzór strona 7 wykładu
 #NIKE
 średnia_nike <- mean(log_zwroty_nike)
+liczebność_nike <- length(log_zwroty_nike)
 
 alpha <- 0.05
 quantile <- qnorm(1 - alpha/2) #   kwantyl rzędu 1−α/2 rozkładu N(0, 1) 
