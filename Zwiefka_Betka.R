@@ -103,7 +103,7 @@ result = mvn(data = df , mvnTest = "mardia",
 #1 przedziały ufności
 #obliczamy przedziały ufnośi na poziomie ufności 95%
 # przwdziały ufności - wzór strona 7 wykładu
-
+#NIKE
 średnia_nike <- mean(log_zwroty_nike)
 
 alpha <- 0.05
