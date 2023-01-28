@@ -102,7 +102,7 @@ result = mvn(data = df , mvnTest = "mardia",
 
 #1 PRZEDZIAŁY UFNOŚĆI
 #obliczamy przedziały ufnośi na poziomie ufności 95%
-# przwdziały ufności - wzór strona 7 wykładu
+# przedziały ufności - wzór strona 7 wykładu
 #NIKE
 średnia_nike <- mean(log_zwroty_nike)
 liczebność_nike <- length(log_zwroty_nike)
@@ -158,3 +158,20 @@ log_zwroty_lm <- lm(log_zwroty_addidas~log_zwroty_nike,data=df)
 log_zwroty_lm
 summary <- summary(log_zwroty_lm)
 summary
+
+
+#analiza reszt
+reszty <- log_zwroty_lm$residuals
+hist(reszty)
+qqnorm(reszty)
+qqline(reszty,col=2)
+m <- mean(reszty)
+s <- sd(reszty)
+ks.test(reszty,'pnorm',m,s)
+
+#test Shapiro-Wilka
+shapiro.test(reszty)
+
+#RSE - blad standardowy reszt
+RSE <- sqrt(sum(reszty^2)/(length(log_zwroty_nike)-2))
+RSE
