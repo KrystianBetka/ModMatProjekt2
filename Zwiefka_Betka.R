@@ -19,6 +19,7 @@ logDataNike <- log(data_nike_closed)
 logDataAddidas <- log(data_addidas_closed)
 
 log_zwroty_nike <- diff(logDataNike)
+
 log_zwroty_addidas <- diff(logDataAddidas)
 
 
@@ -94,4 +95,18 @@ par(mfrow=c(1,2))
 result = mvn(data = df , mvnTest = "mardia",
              univariateTest = "AD", univariatePlot = "qq",
              multivariatePlot = "qq")
+
+
+
+##### CZĘŚĆ 3 projektu
+
+#1 przedziały ufności
+#obliczamy przedziały ufnośi na poziomie ufności 95%
+# przwdziały ufności - wzór strona 7 wykładu
+
+średnia_nike <- mean(log_zwroty_nike)
+
+alpha <- 0.05
+quantile <- qnorm(1 - alpha/2) #   kwantyl rzędu 1−α/2 rozkładu N(0, 1) 
+#nie trzeba wpisywać mean=0,sd=1, poniważ tak jest przyjęte tutaj od razu w tej funckji chyba,że podamy inaczej
 
