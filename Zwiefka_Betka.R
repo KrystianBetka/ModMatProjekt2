@@ -109,10 +109,21 @@ liczebność_nike <- length(log_zwroty_nike)
 sqrt_nike <- sqrt(length(log_zwroty_nike))
 sd_nike <- sd(log_zwroty_nike)
 
-
-sdn
-sqtn
 alpha <- 0.05
 quantile <- qnorm(1 - alpha/2) #   kwantyl rzędu 1−α/2 rozkładu N(0, 1) 
 #nie trzeba wpisywać mean=0,sd=1, poniważ tak jest przyjęte tutaj od razu w tej funckji chyba,że podamy inaczej
+
+#przedział ufności nike dla µ
+left_nike <- średnia_nike - quantile * sd_nike/sqrt_nike
+right_nike <- średnia_nike + quantile * sd_nike/sqrt_nike
+
+#ADIDAS
+średnia_adidas <- mean(log_zwroty_addidas)
+liczebność_addidas <- length(log_zwroty_addidas)
+sqrt_adidas <- sqrt(length(log_zwroty_addidas))
+sd_adidas <- sd(log_zwroty_addidas)
+
+#przedział ufności adidas dla µ
+left_adidas <- średnia_adidas - quantile * sd_adidas/sqrt_adidas
+right_adidas <- średnia_adidas + quantile * sd_adidas/sqrt_adidas
 
