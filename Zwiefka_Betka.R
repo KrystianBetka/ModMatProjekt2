@@ -137,7 +137,9 @@ right_adidas <- średnia_adidas + quantile * sd_adidas/sqrt_adidas
 beta1 <- cov(log_zwroty_nike,log_zwroty_addidas)/var(log_zwroty_nike)
 beta0 <- mean(log_zwroty_addidas)-mean(log_zwroty_nike)*beta1
 beta1; beta0
-#wyznacz prostą regresji y = b0 + b1 · x,
+#beta1 =  0.6535549
+#beta0 = -0.0009209255
+#wyznacz prostą regresji y =  0.6535549  -0.0009209255 · x,
 
 
 #linia regresji na  wykresie #y = beta0 + beta1 * x
@@ -150,4 +152,9 @@ qplot(log_zwroty_nike, log_zwroty_addidas, data = df,
 
 
 
+df <- data.frame(log_zwroty_nike=log_zwroty_nike,log_zwroty_addidas=log_zwroty_addidas)
 
+log_zwroty_lm <- lm(log_zwroty_addidas~log_zwroty_nike,data=df)
+log_zwroty_lm
+summary <- summary(log_zwroty_lm)
+summary
