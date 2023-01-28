@@ -100,7 +100,7 @@ result = mvn(data = df , mvnTest = "mardia",
 
 ##### CZĘŚĆ 3 projektu
 
-#1 przedziały ufności
+#1 PRZEDZIAŁY UFNOŚĆI
 #obliczamy przedziały ufnośi na poziomie ufności 95%
 # przwdziały ufności - wzór strona 7 wykładu
 #NIKE
@@ -117,6 +117,7 @@ quantile <- qnorm(1 - alpha/2) #   kwantyl rzędu 1−α/2 rozkładu N(0, 1)
 left_nike <- średnia_nike - quantile * sd_nike/sqrt_nike
 right_nike <- średnia_nike + quantile * sd_nike/sqrt_nike
 
+
 #ADIDAS
 średnia_adidas <- mean(log_zwroty_addidas)
 liczebność_addidas <- length(log_zwroty_addidas)
@@ -127,3 +128,18 @@ sd_adidas <- sd(log_zwroty_addidas)
 left_adidas <- średnia_adidas - quantile * sd_adidas/sqrt_adidas
 right_adidas <- średnia_adidas + quantile * sd_adidas/sqrt_adidas
 
+#2 REGRESJA LINIOWA
+df <- data.frame(nike=log_zwroty_nike,addidas=log_zwroty_addidas)
+df
+
+#obejrzyjmy dane na wykresie
+qplot(log_zwroty_nike, log_zwroty_addidas, data = df,
+      main = "Log zwroty nike, a log zwroty addidas") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  geom_point(colour = "blue", size = 1.5) 
+
+
+#estymatory wspolczynnikow
+beta1 <- cov(waga.c,waga.s)/var(waga.c)
+beta0 <- mean(waga.s)-mean(waga.c)*beta1
+beta1; beta0
