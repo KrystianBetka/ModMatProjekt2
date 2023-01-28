@@ -106,7 +106,12 @@ result = mvn(data = df , mvnTest = "mardia",
 #NIKE
 średnia_nike <- mean(log_zwroty_nike)
 liczebność_nike <- length(log_zwroty_nike)
+sqrt_nike <- sqrt(length(log_zwroty_nike))
+sd_nike <- sd(log_zwroty_nike)
 
+
+sdn
+sqtn
 alpha <- 0.05
 quantile <- qnorm(1 - alpha/2) #   kwantyl rzędu 1−α/2 rozkładu N(0, 1) 
 #nie trzeba wpisywać mean=0,sd=1, poniważ tak jest przyjęte tutaj od razu w tej funckji chyba,że podamy inaczej
