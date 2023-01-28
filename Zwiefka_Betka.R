@@ -129,23 +129,25 @@ left_adidas <- średnia_adidas - quantile * sd_adidas/sqrt_adidas
 right_adidas <- średnia_adidas + quantile * sd_adidas/sqrt_adidas
 
 #2 REGRESJA LINIOWA
-#R1 <- log_zwroty_nike
-#R2 <-log_zwroty_addidas
+#x <- log_zwroty_nike
+#y <-log_zwroty_addidas
 
 
 #estymatory wspolczynnikow
 beta1 <- cov(log_zwroty_nike,log_zwroty_addidas)/var(log_zwroty_nike)
 beta0 <- mean(log_zwroty_addidas)-mean(log_zwroty_nike)*beta1
 beta1; beta0
-#wyznacz prostą regresji R2 = b0 + b1 · R1,
+#wyznacz prostą regresji y = b0 + b1 · x,
 
 
-#linia regresji na  wykresie (waga.s=-1.18+4.31 waga.c)
-qplot(waga.c, waga.s, data = df,
-      main = "Waga serca, a waga ciała u kotów") +
+#linia regresji na  wykresie #y = beta0 + beta1 * x
+qplot(log_zwroty_nike, log_zwroty_addidas, data = df,
+    ) +
   theme(plot.title = element_text(hjust = 0.5)) +
   geom_point(colour = "blue", size = 1.5) +
   geom_abline(intercept = beta0, slope = beta1, color="red",size=1)
-```
+
+
+
 
 
