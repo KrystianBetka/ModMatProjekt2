@@ -152,17 +152,18 @@ qplot(log_zwroty_nike, log_zwroty_addidas, data = df,
 
 
 
-
 df <- data.frame(log_zwroty_nike=log_zwroty_nike,log_zwroty_addidas=log_zwroty_addidas)
 
-log_zwroty_lm <- lm(log_zwroty_addidas~log_zwroty_nike-1,data=df)
+log_zwroty_lm <- lm(log_zwroty_addidas~log_zwroty_nike,data=df)
 log_zwroty_lm
+
 summary <- summary(log_zwroty_lm)
 summary
 
 
 #analiza reszt
 reszty <- log_zwroty_lm$residuals
+
 hist(reszty)
 qqnorm(reszty)
 qqline(reszty,col=2)
@@ -202,7 +203,7 @@ t0; t1
 #p-value (p = P(|T|>t0), p = P(|T|>t1))
 2*(1-pt(abs(t0),95))
 2*(1-pt(abs(t1),95))
-#dla beta0 wartość  p  wynosi 20% zatem nie ma podstaw do odrzucenia hipotezy, że współczynniki są równe zero
+#dla beta0 wartość  p  wynosi 24% zatem nie ma podstaw do odrzucenia hipotezy, że współczynniki są równe zero
 #dla beta1 wartość p value 0 zatem na poziomie istotności 5% odrzucamy hipotezę zerową
 # czy 1f)
 #PREDYKCJA
@@ -214,7 +215,7 @@ beta0+beta1*m # czy to jest model 2?
 #Predykcja i przedzialy ufnosci dla predykcji
 
 nowe_log_zwroty <- data.frame(log_zwroty_nike=m)
-predict(log_zwroty_lm, nowe_log_zwroty, interval="confidence") #model 2
+predict(log_zwroty_lm, nowe_log_zwroty, interval="confidence") 
 #     fit          lwr         upr
 # -0.0002776217 -0.001813021 0.001257778
 
@@ -222,3 +223,4 @@ predict(log_zwroty_lm, nowe_log_zwroty, interval="confidence") #model 2
 
 #OMÓWIENIE MODELU
 #1.Błąd standardowy B0 i B1
+
