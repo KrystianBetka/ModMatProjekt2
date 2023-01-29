@@ -117,7 +117,6 @@ quantile <- qnorm(1 - alpha/2) #   kwantyl rzędu 1−α/2 rozkładu N(0, 1)
 left_nike <- średnia_nike - quantile * sd_nike/sqrt_nike
 right_nike <- średnia_nike + quantile * sd_nike/sqrt_nike
 
-
 #ADIDAS
 średnia_adidas <- mean(log_zwroty_addidas)
 liczebność_addidas <- length(log_zwroty_addidas)
@@ -128,6 +127,7 @@ sd_adidas <- sd(log_zwroty_addidas)
 left_adidas <- średnia_adidas - quantile * sd_adidas/sqrt_adidas
 right_adidas <- średnia_adidas + quantile * sd_adidas/sqrt_adidas
 
+
 #2 REGRESJA LINIOWA
 #x <- log_zwroty_nike
 #y <-log_zwroty_addidas
@@ -136,7 +136,8 @@ right_adidas <- średnia_adidas + quantile * sd_adidas/sqrt_adidas
 #estymatory wspolczynnikow
 beta1 <- cov(log_zwroty_nike,log_zwroty_addidas)/var(log_zwroty_nike)
 beta0 <- mean(log_zwroty_addidas)-mean(log_zwroty_nike)*beta1
-beta1; beta0
+beta1; 
+beta0
 #beta1 =  0.6535549
 #beta0 = -0.0009209255
 #wyznacz prostą regresji y =  0.6535549  -0.0009209255 · x,
@@ -180,6 +181,7 @@ RSE
 #test istotnosci wspolczynnikow bo, b1
 #Obliczamy wartosci statystyki T oraz p-value
 #wspolczynniki modelu 
+#### BŁĄD!!!!!!
 coef <- log_zwroty_lm$coefficients  
 beta0 <- coef[[1]]
 beta1 <- coef[[2]]
