@@ -155,7 +155,7 @@ qplot(log_zwroty_nike, log_zwroty_addidas, data = df,
 
 df <- data.frame(log_zwroty_nike=log_zwroty_nike,log_zwroty_addidas=log_zwroty_addidas)
 
-log_zwroty_lm <- lm(log_zwroty_addidas~log_zwroty_nike,data=df)
+log_zwroty_lm <- lm(log_zwroty_addidas~log_zwroty_nike-1,data=df)
 log_zwroty_lm
 summary <- summary(log_zwroty_lm)
 summary
